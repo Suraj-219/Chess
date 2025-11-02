@@ -48,6 +48,7 @@ io.on('connection', (socket) => {
       if (chess.turn() === "B" && socket.id != players.black) return;
 
       const result = chess.move(move);
+
       if(result){
         currentPlayer = chess.turn();
         io.emit("move", move);
@@ -57,7 +58,10 @@ io.on('connection', (socket) => {
         socket.emit("invalidMove", move);
       }
     }
-    catch(err){}
+    catch(err){
+      console.log(err);
+      socket.emit("Invalid : ", move);
+    }
    });
 
 });
