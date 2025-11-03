@@ -23,7 +23,7 @@ const renderBoard = () =>{
             if(square) {
                 const pieceElement = document.createElement("div");
                 pieceElement.classList.add("piece",square.color === "W" ? "white" : "black");
-                pieceElement.innerText = "";
+                pieceElement.innerText = getPieceUnicode(square);
                 pieceElement.draggable = playerRole === square.color;
 
                 pieceElement.addEventListener("dragstart", (e) => {
@@ -64,6 +64,23 @@ const renderBoard = () =>{
 
 const handleMove = () => {};
 
-const getPieceUnicode = () => {};
+const getPieceUnicode = (piece) => {
+    const unicodePieces = {
+        p:"♟" ,
+        r:"♜" ,
+        n:"♞",
+        b: "♝", 
+        q:"♛",
+        k:"♚",
+        K: "♔",
+        Q: "♕", 
+        R: "♖", 
+        B: "♗", 
+        N: "♘", 
+        P: "♙", 
+
+    };
+    return unicodePieces[piece.type] || "";
+};
 
 renderBoard();
