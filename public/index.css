@@ -8,12 +8,21 @@
 }
 
 .piece.white {
-    color: white;
-    filter: drop-shadow(0 0 2px rgba(0, 0, 0, 1));
+    color: #ffffff;
+    text-shadow: 
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
 } 
 
 .piece.black {
-    color: black;
+    color: #000000;
+    text-shadow: 
+        -1px -1px 0 #fff,
+        1px -1px 0 #fff,
+        -1px 1px 0 #fff,
+        1px 1px 0 #fff;
 }
 
 .flipped {
@@ -27,16 +36,20 @@
 }
 
 .square.light {
-    background-color: #d8c0a8;
+    background-color: #f0d9b5;
 }
 
 .square.dark {
-    background-color: #956c4a;
+    background-color: #b58863;
 }
 
 .piece {
-    font-size: 36px;
+    font-size: 42px;
     cursor: pointer;
+    font-family: "Segoe UI Symbol", "Noto Color Emoji", "Apple Color Emoji", "Segoe UI Emoji", Times, serif;
+    font-weight: normal;
+    line-height: 1;
+    user-select: none;
 }
 
 .piece.draggable {

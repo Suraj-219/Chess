@@ -80,21 +80,24 @@ const handleMove = (source, target) => {
 
 const getPieceUnicode = (piece) => {
     const unicodePieces = {
-        p:"♟" ,
-        r:"♜" ,
-        n:"♞",
-        b: "♝", 
-        q:"♛",
-        k:"♚",
-        K: "♔",
-        Q: "♕", 
-        R: "♖", 
-        B: "♗", 
-        N: "♘", 
-        P: "♙", 
-
+        w: {
+            k: '♔',
+            q: '♕',
+            r: '♖',
+            b: '♗',
+            n: '♘',
+            p: '♙'
+        },
+        b: {
+            k: '♚',
+            q: '♛',
+            r: '♜',
+            b: '♝',
+            n: '♞',
+            p: '♟︎'
+        }
     };
-    return unicodePieces[piece.type] || "";
+    return unicodePieces[piece.color.toLowerCase()]?.[piece.type.toLowerCase()] || "";
 };
 
 socket.on("playerRole", function (role) {
