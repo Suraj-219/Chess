@@ -1,28 +1,32 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+     background: linear-gradient(120deg, #232526 0%, #0f2027 50%, #2c5364 100%);
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+}
+
 .chessboard {
     display: grid;
     grid-template-columns: repeat(8, minmax(0, 1fr));
     grid-template-rows: repeat(8, minmax(0, 1fr));
-    width: 400px;
-    height: 400px;
+    width: min(90vw, 400px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.6), inset 0 0 15px rgba(255,255,255,0.05);
     transform: rotate(0deg);
 }
 
 .piece.white {
-    color: #ffffff;
-    text-shadow: 
-        -1px -1px 0 #000,
-        1px -1px 0 #000,
-        -1px 1px 0 #000,
-        1px 1px 0 #000;
-} 
+    color: #fafafa;
+    text-shadow: 0 0 6px #000;
+}
 
 .piece.black {
-    color: #000000;
-    text-shadow: 
-        -1px -1px 0 #fff,
-        1px -1px 0 #fff,
-        -1px 1px 0 #fff,
-        1px 1px 0 #fff;
+    color: #111;
+    text-shadow: 0 0 5px #fff;
 }
 
 .flipped {
@@ -33,23 +37,35 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    transition: background 0.3s;
 }
 
 .square.light {
-    background-color: #f0d9b5;
+    background: linear-gradient(135deg, #f5deb3, #e3c07b);
 }
 
 .square.dark {
-    background-color: #b58863;
+     background: linear-gradient(135deg, #8b5a2b, #5c4033);
+}
+
+.square.highlight {
+    box-shadow: inset 0 0 0 4px rgba(255, 255, 0, 0.6);
+}
+
+.square:hover {
+    filter: brightness(1.1);
+    cursor: pointer;
 }
 
 .piece {
     font-size: 42px;
-    cursor: pointer;
+    cursor: grab;
     font-family: "Segoe UI Symbol", "Noto Color Emoji", "Apple Color Emoji", "Segoe UI Emoji", Times, serif;
     font-weight: normal;
     line-height: 1;
     user-select: none;
+    transition: transform 0.2s ease, text-shadow 0.2s ease;
 }
 
 .piece.draggable {
@@ -63,4 +79,12 @@
 /* Rotate pieces for black player */
 .flipped .piece {
     transform: rotate(180deg);
+}
+
+@keyframes pieceMove {
+    from { transform: scale(1.3); opacity: 0.7; }
+    to { transform: scale(1); opacity: 1; }
+}
+.piece {
+    animation: pieceMove 0.2s ease-in-out;
 }
