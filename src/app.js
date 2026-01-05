@@ -52,7 +52,7 @@ io.on('connection', (socket) => {
       if(result){
         currentPlayer = chess.turn();
         io.emit("move", move);
-        io.emit("boatdState", chess.fen());
+        io.emit("boardState", chess.fen());
       } else {
         console.log("Invalid move : ", move);
         socket.emit("invalidMove", move);
