@@ -20,7 +20,7 @@ A real-time multiplayer chess application built using Node.js, Express, Socket.I
 
 ### 🔒 Move Validation
 - Server strictly validates:
- - Correct player turn
+ - Correct playyer turn
  - Legal chess moves
 - Invalid moves are rejected instantly
 
